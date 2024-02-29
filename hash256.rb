@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'digest'
 
-def hash256(hex)
+def dbl_256(hex)
  # 1. Convert hex string to array, and pack in to binary
  binary = [hex].pack("H*")
  # 2. Hash the binary value (returning binary)
@@ -13,4 +13,4 @@ def hash256(hex)
  return result end
 
 hex = ARGV[0] || STDIN.gets.chomp
-puts hash256(hex)
+puts dbl_256(hex)

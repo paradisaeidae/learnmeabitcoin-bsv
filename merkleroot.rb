@@ -1,7 +1,6 @@
 require 'digest' # Need this for the SHA256 hash function
 
-# Hash function used in the merkle root function (and in bitcoin in general)
-def hash256(hex)
+def dbl_256(hex) # Hash function used in the merkle root function (and in bitcoin in general)
  binary = [hex].pack("H*")
  hash1 = Digest::SHA256.digest(binary)
  hash2 = Digest::SHA256.digest(hash1)
@@ -11,16 +10,14 @@ def hash256(hex)
 def merkleroot(txids)
  # 0. Keep an array of results for each level of hashing
  result = []
- 
+
  # 1. Split up array in to pairs
  txids.each_slice(2) do |one, two|
   # 2. Concatenate each pair (or concatenate with itself if not a pair)
   if (two) then concat = one + two
   else concat = one + one end
- 
   # 3. Hash the concatenated pair and add to results array
-  result << hash256(concat) end
- 
+  result << dbl_256(concat) end
  # Recursion: Exit Condition - Stop recursion when we have one final hash result.
  if result.length == 1 then return result.join('') end # Convert the result to a string and return it
  # Recursion: Do the same thing again for the array of hashed pairs.

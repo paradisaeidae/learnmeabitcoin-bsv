@@ -68,7 +68,7 @@ class Keys
   # Key Utils
   # ---------
   # This double-hashing is used all over when hashing in Bitcoin, but used here to create a checksum
-  def hash256(hex)
+  def dbl_256(hex)
    binary = [hex].pack("H*")
    hash1 = Digest::SHA256.digest(binary)
    hash2 = Digest::SHA256.digest(hash1)
@@ -76,7 +76,7 @@ class Keys
 
   # Checksums are used when creating an address
   def checksum(hex)
-   hash = hash256(hex) # Hash the data through SHA256 twice
+   hash = dbl_256(hex) # Hash the data through SHA256 twice
    return hash[0...8] end # Return the first 4 bytes (8 characters)
 
   # Base58 is used when converting from a hash160 to an address

@@ -7,7 +7,7 @@ Small, educational snippets of code to help you to understand and work with Bitc
 * [hexdec.rb](hexdec.rb) - Convert hexadecimal to decimal
 * [dechex.rb](dechex.rb) - Convert decimal to [hexadecimal](http://learnmeabitcoin.com/guide/hexadecimal)
 * [swapendian.rb](swapendian.rb) - Reverse the [byte order](http://learnmeabitcoin.com/guide/little-endian) of a string 
-* [hash256.rb](hash256.rb) - The double-SHA256 hashing that Bitcoin uses
+* [dbl_256.rb](dbl_256.rb) - The double-SHA256 hashing that Bitcoin uses
 <!--
 * [merkleroot.rb](merkleroot.rb) - Create a [merkle root](http://learnmeabitcoin.com/guide/merkle-root) from a list of [TXID](http://learnmeabitcoin.com/guide/txid)s
 -->

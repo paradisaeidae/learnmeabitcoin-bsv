@@ -1,7 +1,7 @@
 require 'digest'
 
-# Checksums use hash256 (where data is hashed twice through sha256)
-def hash256(hex)
+# Checksums use dbl_256 (where data is hashed twice through sha256)
+def dbl_256(hex)
  binary = [hex].pack("H*")
  hash1 = Digest::SHA256.digest(binary)
  hash2 = Digest::SHA256.digest(hash1)
@@ -10,7 +10,7 @@ def hash256(hex)
 
 # Checksums are used when creating addresses
 def checksum(hex)
- hash = hash256(hex) # Hash the data through SHA256 twice
+ hash = dbl_256(hex) # Hash the data through SHA256 twice
  return hash[0...8] end # Return the first 4 bytes (8 characters)
 
 # Example
